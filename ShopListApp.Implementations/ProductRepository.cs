@@ -1,7 +1,6 @@
 ﻿using ShopListApp.Domain.Models;
 using ShopListApp.Data.Context;
 using ShopListApp.Abstractions;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace ShopListApp.Implementations
 {
@@ -13,8 +12,13 @@ namespace ShopListApp.Implementations
             _context = context;
         }
 
-        public bool CreateProduct(Product product)
+        public bool CreateProduct(string name, double cost)
         {
+            Product product = new()
+            {
+                Name = name,
+                Cost = cost
+            };
             _context.Products.Add(product);
             return Save();
         }
@@ -41,7 +45,7 @@ namespace ShopListApp.Implementations
 
             return Save();
         }
-        public bool Save()
+        private bool Save()
         {
             var saved = _context.SaveChanges();
             return saved > 0;

@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ShopListApp.Abstractions\ShopListApp.Service.Abstractions.csproj" />
+    <ProjectReference Include="..\ShopListApp.Abstractions\ShopListApp.Repository.Abstractions.csproj" />
     <ProjectReference Include="..\ShopListApp.Data\ShopListApp.Data.csproj" />
   </ItemGroup>
 

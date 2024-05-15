@@ -9,6 +9,7 @@ namespace ShopListApp.Data.Context
         public DbSet<Product> Products { get; set; }
         public DbSet<Lobby> Lobbys { get; set; }
         public DbSet<LobbyUser> LobbyUsers { get; set; }
+        public DbSet<LobbyProduct> LobbyProducts { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
@@ -26,6 +27,17 @@ namespace ShopListApp.Data.Context
                 .HasOne(u => u.User)
                 .WithMany(lu => lu.LobbyUsers)
                 .HasForeignKey(u => u.UserId);
+
+            modelBuilder.Entity<LobbyProduct>()
+                .HasKey(lp => new { lp.LobbyId, lp.ProductId });
+            modelBuilder.Entity<LobbyProduct>()
+                .HasOne(l => l.Lobby)
+                .WithMany(lp => lp.LobbyProducts)
+                .HasForeignKey(l => l.LobbyId);
+            modelBuilder.Entity<LobbyProduct>()
+                .HasOne(u => u.Product)
+                .WithMany(lp => lp.LobbyProducts)
+                .HasForeignKey(u => u.ProductId);
         }
     }
 }

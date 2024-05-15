@@ -6,7 +6,7 @@ namespace ShopListApp.Abstractions
     {
         Product GetProduct(int id);
         ICollection<Product> GetProducts();
-        bool CreateProduct(Product product);
+        bool CreateProduct(string name, double cost);
         bool DeleteProduct(int id);
         bool UpdateProduct(Product product);
     }

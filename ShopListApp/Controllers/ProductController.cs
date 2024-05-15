@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ShopListApp.Abstractions;
 using ShopListApp.Domain.Models;
-using ShopListApp.Implementations;
 
 namespace ShopListApp.WebAPI.Controllers
 {
@@ -20,7 +19,7 @@ namespace ShopListApp.WebAPI.Controllers
         {
             var product = _productService.GetProduct(productId);
 
-            if (!ModelState.IsValid)
+            if (product == null)
                 return BadRequest(ModelState); 
 
             return Ok(product);
@@ -31,17 +30,17 @@ namespace ShopListApp.WebAPI.Controllers
         {
             var products = _productService.GetProducts();
 
-            if (!ModelState.IsValid)
+            if (products == null)
                 return BadRequest(ModelState);
 
             return Ok(products);
         }
 
         [HttpPost("create-product")]
-        public IActionResult CreateProduct([FromBody] Product product)
+        public IActionResult CreateProduct([FromQuery] string name, double cost)
         {
 
-            if (!_productService.CreateProduct(product))
+            if (!_productService.CreateProduct(name, cost))
             {
                 ModelState.AddModelError("", "Something went wrong while saving");
                 return StatusCode(500, ModelState);

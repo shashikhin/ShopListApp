@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.3">
       <PrivateAssets>all</PrivateAssets>
@@ -16,10 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ShopListApp.Abstractions\ShopListApp.Service.Abstractions.csproj" />
+    <ProjectReference Include="..\ShopListApp.Abstractions\ShopListApp.Repository.Abstractions.csproj" />
     <ProjectReference Include="..\ShopListApp.Data\ShopListApp.Data.csproj" />
     <ProjectReference Include="..\ShopListApp.Domain\ShopListApp.Domain.csproj" />
-    <ProjectReference Include="..\ShopListApp.Implementations\ShopListApp.Service.Implementations.csproj" />
+    <ProjectReference Include="..\ShopListApp.Implementations\ShopListApp.Repository.Implementations.csproj" />
+    <ProjectReference Include="..\ShopListApp.Service.Abstractions\ShopListApp.Service.Abstractions.csproj" />
+    <ProjectReference Include="..\ShopListApp.Service.Implementations\ShopListApp.Service.Implementations.csproj" />
   </ItemGroup>
 
 </Project>

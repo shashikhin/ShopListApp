@@ -13,9 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{997F9A53-B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopListApp.Data", "ShopListApp.Data\ShopListApp.Data.csproj", "{5ABA0A8E-055D-40AA-A5BD-D2E1094F5A03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopListApp.Service.Abstractions", "ShopListApp.Abstractions\ShopListApp.Service.Abstractions.csproj", "{DB5F5DC0-46DD-4493-8E94-B8B63DB90844}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopListApp.Repository.Abstractions", "ShopListApp.Abstractions\ShopListApp.Repository.Abstractions.csproj", "{DB5F5DC0-46DD-4493-8E94-B8B63DB90844}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopListApp.Service.Implementations", "ShopListApp.Implementations\ShopListApp.Service.Implementations.csproj", "{ADE431D4-5E2C-4730-8B6D-6E987B73E763}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopListApp.Repository.Implementations", "ShopListApp.Implementations\ShopListApp.Repository.Implementations.csproj", "{ADE431D4-5E2C-4730-8B6D-6E987B73E763}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopListApp.Service.Abstractions", "ShopListApp.Service.Abstractions\ShopListApp.Service.Abstractions.csproj", "{1DA97182-C5AB-4D82-83B3-8478D50566F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopListApp.Service.Implementations", "ShopListApp.Service.Implementations\ShopListApp.Service.Implementations.csproj", "{1B3D6B8E-9C07-4B40-8EAB-DEEA25F871D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +47,14 @@ Global
 		{ADE431D4-5E2C-4730-8B6D-6E987B73E763}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADE431D4-5E2C-4730-8B6D-6E987B73E763}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADE431D4-5E2C-4730-8B6D-6E987B73E763}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DA97182-C5AB-4D82-83B3-8478D50566F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DA97182-C5AB-4D82-83B3-8478D50566F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DA97182-C5AB-4D82-83B3-8478D50566F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DA97182-C5AB-4D82-83B3-8478D50566F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B3D6B8E-9C07-4B40-8EAB-DEEA25F871D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B3D6B8E-9C07-4B40-8EAB-DEEA25F871D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B3D6B8E-9C07-4B40-8EAB-DEEA25F871D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B3D6B8E-9C07-4B40-8EAB-DEEA25F871D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +65,8 @@ Global
 		{5ABA0A8E-055D-40AA-A5BD-D2E1094F5A03} = {411F52A8-7E3A-4C8A-8228-137BD17A6824}
 		{DB5F5DC0-46DD-4493-8E94-B8B63DB90844} = {997F9A53-B317-4C29-850A-B7205912DF91}
 		{ADE431D4-5E2C-4730-8B6D-6E987B73E763} = {997F9A53-B317-4C29-850A-B7205912DF91}
+		{1DA97182-C5AB-4D82-83B3-8478D50566F7} = {997F9A53-B317-4C29-850A-B7205912DF91}
+		{1B3D6B8E-9C07-4B40-8EAB-DEEA25F871D5} = {997F9A53-B317-4C29-850A-B7205912DF91}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {321851F3-4E0E-4A15-A7A2-396D206C59C2}
