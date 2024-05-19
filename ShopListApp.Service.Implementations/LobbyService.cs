@@ -1,5 +1,6 @@
 ﻿using ShopListApp.Service.Abstractions;
 using ShopListApp.Abstractions;
+using ShopListApp.Domain.Models;
 
 namespace ShopListApp.Service.Implementations
 {
@@ -16,22 +17,22 @@ namespace ShopListApp.Service.Implementations
         }
         public bool AddProductToLobby(int lobbyId, int productId)
         {
-            var lobby = _lobbyRepo.GetLobby(lobbyId);
-            var product = _productRepo.GetProduct(productId);
-
-            if (product == null || lobby == null) return false;
-
-         /*   if (lobby.Products == null)
-                lobby.Products = [product];
-            else
-                lobby.Products.Add(product);*/
-
-            return (_lobbyRepo.UpdateLobby(lobby));
+            return (_lobbyRepo.AddProductToLobby(lobbyId, productId));
         }
 
         public bool AddUserToLobby(int lobbyId, int userId)
         {
             return(_lobbyRepo.AddUserToLobby(lobbyId, userId));
+        }
+
+        public ICollection<Product> GetLobbyProducts(int lobbyId)
+        {
+            return (_lobbyRepo.GetLobbyProducts(lobbyId));
+        }
+
+        public ICollection<User> GetLobbyUsers(int lobbyId)
+        {
+            return(_lobbyRepo.GetLobbyUsers(lobbyId));
         }
     }
 }

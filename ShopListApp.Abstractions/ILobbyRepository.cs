@@ -11,5 +11,7 @@ namespace ShopListApp.Abstractions
         bool UpdateLobby(Lobby lobby);
         bool AddUserToLobby(int id, int userId);
         bool AddProductToLobby(int id, int productId);
+        ICollection<User> GetLobbyUsers(int lobbyId);
+        ICollection<Product> GetLobbyProducts(int lobbyId);
     }
 }

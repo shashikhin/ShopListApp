@@ -40,6 +40,28 @@ namespace ShopListApp.WebAPI.Controllers
             return Ok(lobbies);
         }
 
+        [HttpGet("get-lobby-users")]
+        public IActionResult GetLobbyUsers([FromQuery] int lobbyId)
+        {
+            var users = _lobbyService.GetLobbyUsers(lobbyId);
+
+            if (users == null)
+                return BadRequest(ModelState);
+
+            return Ok(users);
+        }
+
+        [HttpGet("get-lobby-products")]
+        public IActionResult GetLobbyProducts([FromQuery] int lobbyId)
+        {
+            var products = _lobbyService.GetLobbyProducts(lobbyId);
+
+            if (products == null)
+                return BadRequest(ModelState);
+
+            return Ok(products);
+        }
+
         [HttpPost("create-lobby")]
         public IActionResult CreateLobby([FromQuery] int userId)
         {
@@ -82,13 +104,25 @@ namespace ShopListApp.WebAPI.Controllers
         [HttpPut("add-product-to-lobby")]
         public IActionResult AddProductToLobby([FromQuery] int lobbyId, int productId)
         {
-           if(!_lobbyService.AddProductToLobby(lobbyId, productId))
+            if (!_lobbyService.AddProductToLobby(lobbyId, productId))
             {
                 ModelState.AddModelError("", "Something went wrong while adding product to lobby");
                 return StatusCode(500, ModelState);
             }
 
-           return NoContent();
+            return NoContent();
+        }
+
+        [HttpPut("add-user-to-lobby")]
+        public IActionResult AddUserToLobby([FromQuery] int lobbyId, int userId)
+        {
+            if (!_lobbyService.AddUserToLobby(lobbyId, userId))
+            {
+                ModelState.AddModelError("", "Something went wrong while adding user to lobby");
+                return StatusCode(500, ModelState);
+            }
+
+            return NoContent();
         }
 
     }

@@ -87,10 +87,10 @@ namespace ShopListApp.Implementations
             return Save();
         }
 
-        public bool AddProductToLobby(int id, int userId)
+        public bool AddProductToLobby(int id, int productId)
         {
             var lobby = GetLobby(id);
-            var product = _context.Products.Where(p => p.Id == id).FirstOrDefault();
+            var product = _context.Products.Where(p => p.Id == productId).FirstOrDefault();
 
             if (lobby == null || product == null) return false;
 
@@ -104,5 +104,20 @@ namespace ShopListApp.Implementations
             return Save();
         }
 
+        public ICollection<User> GetLobbyUsers(int lobbyId)
+        {
+            var lobbyUsers = _context.LobbyUsers
+                .Where(l => l.Lobby.Id == lobbyId)
+                .Select(u  => u.User).ToList();
+            return lobbyUsers;
+        }
+
+        public ICollection<Product> GetLobbyProducts(int lobbyId)
+        {
+            var lobbyProducts = _context.LobbyProducts
+                .Where(l => l.Lobby.Id == lobbyId)
+                .Select(p => p.Product).ToList();
+            return lobbyProducts;
+        }
     }
 }
